@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="get" action="report1">
+    <label>Search: </label>
+    <input  th:name="compName" >
+    <input type="submit" value="Search">
+</form>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Full name</th>
+        <th>phone</th>
+        <th>Email</th>
+        <th></th>
+    </tr>
+    <tbody th:each="can, index : ${candidates}">
+    <tr>
+        <td th:text="${index.index}"></td>
+        <td th:text="${can.fullName}"></td>
+        <td th:text="${can.phone}"></td>
+        <td th:text="${can.email}"></td>
+        <td>
+            <a th:href="@{'cand_detail/'+${can.id}}">View details</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
